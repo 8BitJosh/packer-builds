@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu -o pipefail
 
-user="robot"
+user="pi"
 password="$(openssl passwd -crypt -salt robot robot)"
 
 userdel -r pi
@@ -22,7 +22,3 @@ echo "$user:$password" > /boot/userconf
 
 # Enable ssh
 touch /boot/ssh
-
-# profile.d
-mv /tmp/packer/user/srobo.sh /etc/profile.d/
-chmod 755 /etc/profile.d/srobo.sh
