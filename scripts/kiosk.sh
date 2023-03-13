@@ -10,7 +10,14 @@ home_dir='/home/pi'
 # Package install
 apt-get -y install \
     puppet \
-    git
+    git \
+    unclutter \
+    python3-yaml \
+    x11-xserver-utils \
+    screen \
+    xdotool \
+    htop \
+    ntpstat
 
 cd $home_dir
 git clone https://github.com/PeterJCLaw/srcomp-kiosk
