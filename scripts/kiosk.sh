@@ -20,12 +20,17 @@ apt-get -y install \
     ntpstat
 
 cd $home_dir
-git clone https://github.com/PeterJCLaw/srcomp-kiosk
-cd srcomp-kiosk
-git submodule update --init --recursive
+git clone --recursive https://github.com/PeterJCLaw/srcomp-kiosk
 
 chown 1000:1000 -R $home_dir/srcomp-kiosk
-ln -s $home_dir/srcomp-kiosk $puppet_dir
+rm -rf /etc/puppet
+ln -s $home_dir/srcomp-kiosk/ $puppet_dir
+
+# Allow git to be used in the repository as root
+cat > /root/.gitconfig << EOF
+[safe]
+	directory = /home/pi/srcomp-kiosk
+EOF
 
 # Run puppet config at boot
 mv /tmp/packer/kiosk/kiosk-puppet.service /usr/lib/systemd/system/
