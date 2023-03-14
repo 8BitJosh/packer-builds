@@ -15,8 +15,8 @@ useradd \
     -p "$password" \
     $user
 
-mv /etc/sudoers.d/010_pi-nopasswd /etc/sudoers.d/010_robot-nopasswd
-sed -i 's/pi/robot/g' /etc/sudoers.d/010_robot-nopasswd
+mv /etc/sudoers.d/010_pi-nopasswd /etc/sudoers.d/010_$user-nopasswd
+sed -i "s/pi/$user/g" /etc/sudoers.d/010_$user-nopasswd
 
 echo "$user:$password" > /boot/userconf
 
