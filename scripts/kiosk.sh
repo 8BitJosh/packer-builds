@@ -17,7 +17,8 @@ apt-get -y install \
     screen \
     xdotool \
     htop \
-    ntpstat
+    ntpstat \
+    chromium-browser
 
 cd $home_dir
 git clone --recursive https://github.com/PeterJCLaw/srcomp-kiosk
