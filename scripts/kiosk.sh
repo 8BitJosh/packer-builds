@@ -38,6 +38,9 @@ mv /tmp/packer/kiosk/kiosk-puppet.service /usr/lib/systemd/system/
 chmod 644 /usr/lib/systemd/system/kiosk-puppet.service
 systemctl enable kiosk-puppet.service
 
+# remove "Welcome to Raspberry Pi"
+rm /etc/xdg/autostart/piwiz.desktop
+
 # Disable screen blanking
 mkdir -p /etc/X11/xorg.conf.d/
 mv /tmp/packer/kiosk/10-blanking.conf /etc/X11/xorg.conf.d/10-blanking.conf
